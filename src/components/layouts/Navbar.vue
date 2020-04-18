@@ -10,9 +10,9 @@
             </router-link>
           </li>
           <li>
-            <a href="">
+            <router-link :to="{ name: 'Login' }">
               Log in
-            </a>
+            </router-link>
           </li>
           <li>
             <a @click="logout">Log out</a>
