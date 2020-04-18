@@ -2,7 +2,7 @@
   <div class="navbar">
     <nav class="deep-purple darken-1">
       <div class="container">
-        <a href="" class="brand-logo left">Geo Maps Tracker</a>
+        <router-link :to="{ name: 'GMap' }" class="brand-logo left">Geo Maps Tracker</router-link>
         <ul class="right">
           <li>
             <router-link :to="{ name: 'Signup' }">
@@ -37,7 +37,7 @@ export default {
     logout () {
       firebase.auth().signOut()
         .then(() => {
-          this.$router.push({ name: 'Signup' })
+          this.$router.push({ name: 'Login' })
         })
     }
   }
