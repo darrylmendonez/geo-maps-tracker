@@ -5,14 +5,17 @@
         <a href="" class="brand-logo left">Geo Maps Tracker</a>
         <ul class="right">
           <li>
-            <a href="">
+            <router-link :to="{ name: 'Signup' }">
               Sign up
-            </a>
+            </router-link>
           </li>
           <li>
             <a href="">
               Log in
             </a>
+          </li>
+          <li>
+            <a @click="logout">Log out</a>
           </li>
         </ul>
       </div>
@@ -21,11 +24,21 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   name: 'App',
   data () {
     return {
 
+    }
+  },
+  methods: {
+    logout () {
+      firebase.auth().signOut()
+        .then(() => {
+          this.$router.push({ name: 'Signup' })
+        })
     }
   }
 }
