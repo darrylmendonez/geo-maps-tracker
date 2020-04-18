@@ -16,6 +16,7 @@
         <label for="alias">Alias:</label>
         <input type="text" name="alias" v-model="alias" />
       </div>
+      <p class="red-text center" v-if="feedback" v-html="feedback"></p>
       <div class="field center">
         <button class="btn deep-purple">Signup</button>
       </div>
@@ -24,18 +25,40 @@
 </template>
 
 <script>
+import db from '@/firebase/init'
+import slugify from 'slugify'
+
 export default {
   name: 'Signup',
   data () {
     return {
       email: null,
       password: null,
-      alias: null
+      alias: null,
+      feedback: null,
+      slug: null
     }
   },
   methods: {
-    signup() {
-      
+    signup () {
+      if (this.alias) {
+        this.slug = slugify(this.alias, {
+          replacement: '-',
+          remove: /[$*_+~.()'"!\-:@]/g,
+          lower: true
+        })
+        let ref = db.collection('users').doc(this.slug)
+        ref.get().then(doc => {
+          if (doc.exists) {
+            this.feedback = 'This alias already exists'
+          } else {
+            this.feedback = 'This alias is available to use'
+          }
+        })
+        console.log(this.slug)
+      } else {
+        this.feedback = 'Please enter an alias'
+      }
     }
   }
 }
