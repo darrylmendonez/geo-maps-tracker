@@ -4,17 +4,20 @@
       <div class="container">
         <router-link :to="{ name: 'GMap' }" class="brand-logo left">Geo Maps Tracker</router-link>
         <ul class="right">
-          <li>
+          <li v-if="!user">
             <router-link :to="{ name: 'Signup' }">
               Sign up
             </router-link>
           </li>
-          <li>
+          <li v-if="user">
+            <a v-html="user.email"></a>
+          </li>
+          <li v-if="!user">
             <router-link :to="{ name: 'Login' }">
               Log in
             </router-link>
           </li>
-          <li>
+          <li v-if="user">
             <a @click="logout">Log out</a>
           </li>
         </ul>
@@ -30,7 +33,7 @@ export default {
   name: 'App',
   data () {
     return {
-
+      user: null
     }
   },
   methods: {
@@ -40,6 +43,16 @@ export default {
           this.$router.push({ name: 'Login' })
         })
     }
+  },
+  created () {
+    // let user = firebase.auth().currentUser
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user
+      } else {
+        this.user = null
+      }
+    })
   }
 }
 </script>
