@@ -27,7 +27,7 @@
 <script>
 import db from '@/firebase/init'
 import slugify from 'slugify'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 
 export default {
   name: 'Signup',

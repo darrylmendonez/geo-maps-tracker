@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import db from '@/firebase/init'
 
 export default {
   name: 'GMap',
@@ -17,6 +18,7 @@ export default {
   },
   methods: {
     renderMap () {
+      const google = window.google
       const map = new google.maps.Map(document.getElementById('map'), {
         center: {
           lat: this.lat,
@@ -27,14 +29,27 @@ export default {
         mixZoom: 3,
         streetViewControl: false
       })
+      if (map === undefined) {
+        console.log('map = ', map)
+      }
     }
   },
   mounted () {
+    // get current user
+    let user = firebase.auth().currentUser
     // get user geolocation
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {
         this.lat = pos.coords.latitude
         this.lng = pos.coords.longitude
+        // find the user record and then update the geocoords
+        db.collection('users').where('user_id', '==', user.uid).get()
+          .then(snapshot => {
+            snapshot.forEach((doc) => {
+              console.log(doc.id)
+            })
+          })
+
         this.renderMap()
       }, (err) => {
         console.log(err)
