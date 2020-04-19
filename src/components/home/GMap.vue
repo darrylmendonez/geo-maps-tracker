@@ -46,7 +46,12 @@ export default {
         db.collection('users').where('user_id', '==', user.uid).get()
           .then(snapshot => {
             snapshot.forEach((doc) => {
-              console.log(doc.id)
+              db.collection('users').doc(doc.id).update({
+                geolocation: {
+                  lat: pos.coords.latitude,
+                  lng: pos.coords.longitude
+                }
+              })
             })
           })
 
