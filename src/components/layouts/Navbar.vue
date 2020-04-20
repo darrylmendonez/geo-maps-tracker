@@ -23,6 +23,11 @@
           <li v-if="user">
             <a @click="logout">Log out</a>
           </li>
+          <li>
+            <router-link :to="{ name: 'About' }">
+              About
+            </router-link>
+          </li>
         </ul>
       </div>
     </nav>
