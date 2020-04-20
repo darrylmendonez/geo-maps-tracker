@@ -1,6 +1,18 @@
 <template>
-  <div class="map">
-    <div id="map" class="google-map"></div>
+  <div>
+    <div class="map">
+      <div id="map" class="google-map"></div>
+    </div>
+    <div class="guide"><div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+          <p>Scroll or zoom around the map to find markers. Click on a marker to participate in a user's conversation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
   </div>
 </template>
 
@@ -103,4 +115,11 @@ export default {
     left: 0;
     z-index: -1;
   }
+
+  .guide {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
 </style>
