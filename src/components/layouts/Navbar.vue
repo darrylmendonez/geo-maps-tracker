@@ -10,23 +10,23 @@
             </router-link>
           </li>
           <li v-if="user">
-            <router-link :to="{ name: 'GMap' }">Map</router-link>
+            <router-link :to="{ name: 'ViewProfile', params: { id: this.$store.state.paramsId.newParamsId } }" v-html="user.email"></router-link>
           </li>
           <li v-if="user">
-            <router-link :to="{ name: 'ViewProfile', params: { id: this.$store.state.paramsId.newParamsId } }" v-html="user.email"></router-link>
+            <router-link :to="{ name: 'GMap' }">Map</router-link>
           </li>
           <li v-if="!user">
             <router-link :to="{ name: 'Login' }">
               Log in
             </router-link>
           </li>
-          <li v-if="user">
-            <a @click="logout">Log out</a>
-          </li>
           <li>
             <router-link :to="{ name: 'About' }">
               About
             </router-link>
+          </li>
+          <li v-if="user">
+            <a @click="logout">Log out</a>
           </li>
         </ul>
       </div>
