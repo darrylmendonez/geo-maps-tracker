@@ -11,7 +11,6 @@
             <li class="collection-item"><em>Google Maps api</em> is used for the map component and markers are clickable to link to profile of user</li>
             <li class="collection-item"><em>Firebase Database</em> is used for its real-time database which allows for the chat feature</li>
             <li class="collection-item"><em>Firebase Authentication</em> is used for user registration and login</li>
-            <li class="collection-item"><em>Firebase Hosting</em> is used for deployment</li>
           </ul>
         </div>
       </div>
