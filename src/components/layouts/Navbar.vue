@@ -2,7 +2,7 @@
   <div class="navbar">
     <nav class="blue-grey darken-1 darken-1">
       <div class="container">
-        <router-link :to="{ name: 'GMap' }" class="brand-logo left hide-on-small-only">Geo Maps Tracker</router-link>
+        <router-link :to="{ name: 'GMap' }" class="brand-logo left hide-on-small-only" v-html="this.$store.state.title"></router-link>
         <ul class="right">
           <li v-if="!user">
             <router-link :to="{ name: 'Signup' }">
