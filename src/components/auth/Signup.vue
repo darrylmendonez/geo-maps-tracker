@@ -1,8 +1,8 @@
 <template>
   <div class="signup container">
     <form class="card-panel" @submit.prevent="signup">
-      <h2 class="center deep-purple-text">
-        Signup
+      <h2 class="center blue-grey-text">
+        Sign up
       </h2>
       <div class="field">
         <label for="email">Email:</label>
@@ -18,7 +18,7 @@
       </div>
       <p class="red-text center" v-if="feedback" v-html="feedback"></p>
       <div class="field center">
-        <button class="btn deep-purple">Signup</button>
+        <button class="btn blue-grey darken-1">Sign up</button>
       </div>
     </form>
   </div>
@@ -68,7 +68,6 @@ export default {
                 console.log(err)
                 this.feedback = err.message
               })
-            this.feedback = 'This alias is available to use'
           }
         })
         console.log(this.slug)

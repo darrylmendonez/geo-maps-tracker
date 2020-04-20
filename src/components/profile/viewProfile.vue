@@ -1,11 +1,10 @@
 <template>
   <div class="view-profile container">
     <div v-if="profile" class="card">
-      <h2 class="deep-purple-text center">{{ profile.alias}}'s Wall</h2>
+      <h2 class="blue-grey-text center">{{ profile.alias}}'s Wall</h2>
       <ul class="comments collection">
         <li v-for="(comment, index) in comments" :key="index">
-          <div class="deep-purple-text">{{ comment.from }}</div>
-          <div class="grey-text text-darken-2">{{ comment.content }}</div>
+          <span class="blue-grey-text">{{ comment.from }}</span>: <span class="grey-text text-darken-2">{{ comment.content }}</span>
         </li>
       </ul>
       <form @submit.prevent="addComment">

@@ -1,7 +1,7 @@
 <template>
   <div class="login container">
     <form class="card-panel" @submit.prevent="login">
-      <h2 class="center deep-purple-text">Login</h2>
+      <h2 class="center blue-grey-text">Log in</h2>
       <div class="field">
         <label for="email">Email:</label>
         <input type="email" name="email" v-model="email"/>
@@ -12,8 +12,15 @@
       </div>
       <p v-if="feedback" v-html="feedback" class="red-text center"></p>
       <div class="field">
-        <button class="btn deep-purple">Login</button>
+        <button class="btn blue-grey darken-1">Login</button>
       </div>
+      <p>
+        quick log in creds:<br />
+        <code class="pink-text">
+        james@bond.com<br />
+        123456
+        </code>
+      </p>
     </form>
   </div>
 </template>

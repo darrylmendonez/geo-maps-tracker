@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <nav class="deep-purple darken-1">
+    <nav class="blue-grey darken-1 darken-1">
       <div class="container">
         <router-link :to="{ name: 'GMap' }" class="brand-logo left">Geo Maps Tracker</router-link>
         <ul class="right">
@@ -10,7 +10,10 @@
             </router-link>
           </li>
           <li v-if="user">
-            <a v-html="user.email"></a>
+            <router-link :to="{ name: 'GMap' }">Map</router-link>
+          </li>
+          <li v-if="user">
+            <router-link :to="{ name: 'ViewProfile', params: { id: this.$store.state.paramsId.newParamsId } }" v-html="user.email"></router-link>
           </li>
           <li v-if="!user">
             <router-link :to="{ name: 'Login' }">
@@ -54,6 +57,7 @@ export default {
       }
     })
   }
+
 }
 </script>
 

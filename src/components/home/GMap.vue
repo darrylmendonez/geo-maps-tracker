@@ -71,6 +71,11 @@ export default {
                   lng: pos.coords.longitude
                 }
               })
+              let paramsId = doc.id
+              this.$store.commit({ type: 'setParamsId', newParamsId: paramsId })
+              this.$store.dispatch('setParamsId', {
+                newParamsId: paramsId
+              })
             })
           })
 
