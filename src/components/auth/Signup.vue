@@ -20,6 +20,7 @@
       <div class="field center">
         <button class="btn blue-grey darken-1">Sign up</button>
       </div>
+      Have an account? <router-link :to="{ name: 'Login' }">Log in</router-link>.
     </form>
   </div>
 </template>

@@ -11,9 +11,10 @@
         <input type="password" name="password"  v-model="password" />
       </div>
       <p v-if="feedback" v-html="feedback" class="red-text center"></p>
-      <div class="field">
+      <div class="field center">
         <button class="btn blue-grey darken-1">Login</button>
       </div>
+      Don't have an account? <router-link :to="{ name: 'Signup' }">Sign up</router-link>.
       <p>
         quick log in creds:<br />
         <code class="pink-text">
